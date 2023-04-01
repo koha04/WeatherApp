@@ -1,0 +1,65 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img img {
+  width: 400px;
+  height: 220px;
+  object-fit: cover;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));
+}
+
+.name {
+  font-size: 40px;
+  color: transparent;
+  background: linear-gradient(20deg, #fcba03, #03dbfc, #fc0314);
+  background-clip: text;
+  position: absolute;
+  top: 5%;
+  left: -10%;
+  transform: translate(-5%, -20%);
+  animation: trans 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+}
+
+@keyframes trans {
+  100% {
+    background-position: 200px;
+    transform: scale(1);
+  }
+}
+
+.temperature {
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  color: #ff8026;
+}
+
+.temperature-number {
+  color: #fc038c;
+}
+
+.list {
+  margin-top: 20px;
+  display: flex;
+  gap: 40px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.list-item li {
+  padding: 5px;
+}
+
+.list-item li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #fc2985;
+}

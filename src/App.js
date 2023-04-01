@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useMemo, useState } from "react";
+import "./App.css";
+import { Search } from "./weather/Search";
+import Weather from "./weather/Weather";
 
-function App() {
+export const WeatherContext = createContext();
+
+const App = () => {
+  const [city, setCity] = useState("");
+  const [prevState, setPrevState] = useState();
+  const [data, setData] = useState({});
+
+  const cityProps = useMemo(() => {
+    return {
+      city: city,
+      setCity: setCity,
+      prevState: prevState,
+      setPrevState: setPrevState,
+      data: data,
+      setData: setData,
+    };
+  }, [city, prevState, data]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="title">Weather App</h1>
+      <WeatherContext.Provider value={cityProps}>
+        <Search />
+        {data.weather &&
+          data.weather.map((weather) => {
+            const { id, icon } = weather;
+            return <Weather key={id} icon={icon} />;
+          })}
+      </WeatherContext.Provider>
     </div>
   );
-}
+};
 
 export default App;
