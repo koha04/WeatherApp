@@ -20,7 +20,14 @@ body {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 input[name="searchCity"] {
+  width: 100%;
   padding: 10px 20px;
   border: 1px solid #333;
   border-radius: 6px;
@@ -36,4 +43,14 @@ input[name="searchCity"] {
   color: transparent;
   background: linear-gradient(60deg, #fff, #1e00ff, #02d1ff, #ff0000);
   background-clip: text;
+}
+
+@media screen and (max-width: 500px){
+  .App {
+    padding: 30px 20px;
+  }
+
+  input[name="searchCity"] {
+    width: 70%;
+  }
 }
