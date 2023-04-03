@@ -15,14 +15,16 @@ export const Search = () => {
   }, [prevState]);
 
   return (
-    <input
-      type="search"
-      name="searchCity"
-      value={city}
-      id=""
-      placeholder="Search City..."
-      onChange={(e) => setCity(e.target.value)}
-      onKeyDown={(e) => e.key === "Enter" && setPrevState(city)}
-    />
+    <div className="search">
+      <input
+        type="search"
+        name="searchCity"
+        value={city}
+        id=""
+        placeholder="Search City..."
+        onChange={(e) => setCity(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && setPrevState(city)}
+      />
+    </div>
   );
 };
